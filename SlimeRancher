@@ -1,0 +1,36 @@
+function OnEvent(event, arg, family)
+    if event == "MOUSE_BUTTON_PRESSED" and arg == 10 then
+        ToggleState1 = not ToggleState1
+        ToggleState2 = false
+        if ToggleState1 then --ToggleState is floped before so false means that button is holded
+            ReleaseMouseButton(3)
+            --ReleaseMouseButton(1)
+            PressMouseButton(1)
+        else
+            ReleaseMouseButton(1)
+            --ReleaseMouseButton(3)
+        end
+    end
+    if event == "MOUSE_BUTTON_PRESSED" and arg == 9 then
+        ToggleState2 = not ToggleState2
+        ToggleState1 = false
+        if ToggleState2 then
+            --ReleaseMouseButton(3)
+            ReleaseMouseButton(1)
+            PressMouseButton(3)
+        else
+            ReleaseMouseButton(3)
+            --ReleaseMouseButton(1)
+        end
+    end
+    if event == "MOUSE_BUTTON_PRESSED" and arg == 1 then
+        ToggleState1 = false
+        ToggleState2 = false
+        ReleaseMouseButton(3)
+    end
+    if event == "MOUSE_BUTTON_PRESSED" and arg == 3 then
+        ToggleState1 = false
+        ToggleState2 = false
+        ReleaseMouseButton(1)
+    end
+end
